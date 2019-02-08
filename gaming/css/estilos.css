@@ -1,0 +1,33 @@
+body {
+  background: #ccc;
+}
+
+h1 {
+    color: #09561C;
+}
+
+h3 {
+    padding: 15px;
+}
+
+.flexbox-container {
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.flexbox-container > div {
+    width: 45%;
+    padding: 10px;
+    padding-bottom: 50px;
+}
+
+#playing, #resultados {
+    font: 15px 'trebuchet MS', 'lucida sans';
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+
+
+
+   

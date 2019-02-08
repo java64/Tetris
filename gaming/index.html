@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>GAMING</title>
+     <link rel="stylesheet" href="css/estilos.css" type="text/css" media="all" />    
+</head>
+
+<body>
+    <h1>GAMING CUEVAS</h1>
+    <div class="flexbox-container">
+        <!-- Aquí van las cervezas de la API --> 
+        <div id="playing"> 
+            <div class="game" style="width:250px; height:500px;">
+            </div>
+        </div>
+        <!-- Aquí van mis cervezas favoritas -->
+        <div id="resultados">
+
+        </div>
+    </div>
+    
+<!-- jQuery and Blockrain.js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/blockrain.jquery.js"></script>
+<script>
+    //$('.game').blockrain();
+    //$('.game').blockrain('theme', 'vim');
+    //$('.game').blockrain('controls', false);
+
+  var $game = $('.game').blockrain({
+    autoplay: false,
+    autoplayRestart: false,
+    speed: 20,
+    onGameOver: function(score) {
+      var nick = prompt("Dime tu nick");
+      alert(score+" "+nick);
+
+      //Ajax
+      var parametros = {
+            "nick" : nick,
+            "puntuacion" : score
+        };
+        $.ajax({
+            data : parametros,
+            url : 'insertar',
+            type: 'post',
+            beforeSend : function(){
+                $('#resultados').html("Insertando ...");
+            },
+            success : function(response) {
+                $('#resultados').html(response);
+            }
+
+        });
+
+    }
+  });
+</script>
+    
+</body>
+
+</html>
