@@ -3,14 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <title>GAMING</title>
-     <link rel="stylesheet" href="css/estilos.css" type="text/css" media="all" />    
+    <link rel="stylesheet" href="css/estilos.css" type="text/css" media="all" />   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
-
+ 
 <body>
-    <h1>GAMING CUEVAS</h1>
+    <h1 class='display-4 ml-2 text-primary'>GAMING CUEVAS</h1>
     <div class="flexbox-container">
         <!-- Aquí van las cervezas de la API --> 
         <div id="playing"> 
+            <h3 class='text-info'>TETRIS</h3>
             <div class="game" style="width:250px; height:500px;">
             </div>
         </div>
@@ -24,17 +26,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="js/blockrain.jquery.js"></script>
 <script>
-    //$('.game').blockrain();
-    //$('.game').blockrain('theme', 'vim');
-    //$('.game').blockrain('controls', false);
-
   var $game = $('.game').blockrain({
     autoplay: false,
     autoplayRestart: false,
     speed: 20,
     onGameOver: function(score) {
       var nick = prompt("Dime tu nick");
-      alert(score+" "+nick);
 
       //Ajax
       var parametros = {
